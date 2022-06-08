@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  server:
+    build: "./server"
+    ports:
+      - "3000:3000"
+    environment:
+      SERVER_PORT: '3000'
+      DB_NAME: leads_db
+      DB_USER: leads_user
+      DB_PORT: '5431'
+      DB_HOST: db
+      DB_PASSWORD: c62UUnr68je
+  client:
+    build: "./client"
+    ports:
+      - "8080:8443"
+  db:
+    build: "./db"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: leads_db
+      POSTGRES_USER: leads__user
+      POSTGRES_PASSWORD: c62UUnr68jeeee

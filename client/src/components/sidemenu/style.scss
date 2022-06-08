@@ -1,0 +1,15 @@
+.app-section {
+  .sidemenu-wrap {
+    width: 20%;
+    background: lightgrey;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+  }
+}

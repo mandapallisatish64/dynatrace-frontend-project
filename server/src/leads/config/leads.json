@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Consultant account sale",
+    "value": 1145645362,
+    "date": "2019-02-20T00:00:00.000Z",
+    "salesClientId": 1,
+    "salesOwnerId": 1
+  },
+  {
+    "id": 2,
+    "name": "Consumption expansion deal",
+    "value": 1244523,
+    "date": "2020-08-13T00:00:00.000Z",
+    "salesClientId": 2,
+    "salesOwnerId": 2
+  },
+  {
+    "id": 3,
+    "name": "Product XYZ market research",
+    "value": 1234456345,
+    "date": "2019-04-04T00:00:00.000Z",
+    "salesClientId": 3,
+    "salesOwnerId": 3
+  },
+  {
+    "id": 4,
+    "name": "Proposed leadership budget trade",
+    "value": 12312,
+    "date": "2020-01-16T00:00:00.000Z",
+    "salesClientId": 4,
+    "salesOwnerId": 4
+  },
+  {
+    "id": 5,
+    "name": "Network southwest deal",
+    "value": 34561234,
+    "date": "2019-12-25T00:00:00.000Z",
+    "salesClientId": 5,
+    "salesOwnerId": 5
+  },
+  {
+    "id": 6,
+    "name": "Legacy monolith upgrade",
+    "value": 2234,
+    "date": "2019-06-20T00:00:00.000Z",
+    "salesClientId": 6,
+    "salesOwnerId": 6
+  },
+  {
+    "id": 7,
+    "name": "Microservice migration commitment",
+    "value": 63412355,
+    "date": "2017-05-04T00:00:00.000Z",
+    "salesClientId": 7,
+    "salesOwnerId": 7
+  },
+  {
+    "id": 8,
+    "name": "Drop consultant engagement",
+    "value": 123567457,
+    "date": "2017-08-10T00:00:00.000Z",
+    "salesClientId": 8,
+    "salesOwnerId": 8
+  },
+  {
+    "id": 9,
+    "name": "Classic trade deal initials",
+    "value": 4634563467,
+    "date": "2014-09-08T00:00:00.000Z",
+    "salesClientId": 9,
+    "salesOwnerId": 9
+  },
+  {
+    "id": 10,
+    "name": "Full service customer architecture",
+    "value": 23458899845,
+    "date": "2020-01-06T00:00:00.000Z",
+    "salesClientId": 10,
+    "salesOwnerId": 10
+  }
+]
