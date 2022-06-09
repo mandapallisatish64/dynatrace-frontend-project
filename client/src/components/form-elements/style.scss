@@ -1,0 +1,28 @@
+.Input-filed-wrapper {
+  .col .row {
+    font-size: 13px;
+
+    .form-group {
+      padding: 0;
+      .add-sales-input {
+        height: 29px;
+        font-size: 13px;
+        width: 100%;
+        border: 1px solid lightgrey;
+        border-radius: 4px;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.custom-datepicker-wrapper {
+  .addsales-date-react-datepicker {
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    height: 29px;
+    font-size: 13px;
+    padding: 10px;
+  }
+}

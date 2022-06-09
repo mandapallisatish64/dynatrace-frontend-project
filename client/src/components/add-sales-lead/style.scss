@@ -1,4 +1,30 @@
 .add-sales-pagewrapper {
   position: relative;
   right: 22em;
+  .button-wrapper.row {
+    margin-left: 12em;
+    .cancel-sales.col {
+      .cancel-sales-btn {
+        border-radius: 4px;
+        font-size: 14px;
+        background: white;
+        color: rgb(0 161 177);
+        border: 1px solid rgb(0 161 177);
+        width: 5em;
+        height: 31px;
+      }
+    }
+
+    .save-sales.col {
+      .save-sales-btn {
+        border: 1px solid rgb(0 161 177);
+        background: rgb(0 161 177);
+        color: white;
+        width: 5em;
+        border-radius: 4px;
+        height: 31px;
+        font-size: 14px;
+      }
+    }
+  }
 }

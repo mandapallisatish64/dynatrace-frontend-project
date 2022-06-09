@@ -80,16 +80,25 @@ function SalesLeads() {
   }, []);
 
   const onAddSalesPage = () => {
-    console.log("enttedc");
     setShowAddpage(true);
+  };
+
+  const onCancelClickHandler = () => {
+    setShowAddpage(false);
   };
 
   return (
     <div className="sales-table-wrapper">
-      <button type="button" onClick={onAddSalesPage} className="sales-btn">
-        Add Sales
-      </button>
-      {showAddpage ? <AddSales /> : <SalesTable />}
+      {showAddpage ? (
+        <AddSales onCancelClickHandler={onCancelClickHandler} />
+      ) : (
+        <div className="salesbtn-table-container">
+          <button type="button" onClick={onAddSalesPage} className="sales-btn">
+            Add Sales
+          </button>
+          <SalesTable />
+        </div>
+      )}
     </div>
   );
 }

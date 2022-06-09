@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./style.scss"
+import "./style.scss";
 
 function SideMenu() {
   const sideMenuOptions = [
@@ -9,13 +9,12 @@ function SideMenu() {
       description: "Review and create new leads",
       linkTo: "/salesleads",
     },
-    
   ];
   return (
     <div className="sidemenu-wrap">
-      {sideMenuOptions.map(({ title, description, linkTo }) => {
+      {sideMenuOptions.map(({ title, linkTo }) => {
         return (
-          <NavLink to={linkTo}>
+          <NavLink to={linkTo} key={Math.random()}>
             <h5>{title}</h5>
           </NavLink>
         );

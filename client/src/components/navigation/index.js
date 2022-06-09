@@ -6,7 +6,7 @@ function Navigation() {
   const pathsArray = pathname.split("/");
   return pathsArray.map((path) => {
     return (
-      <div>
+      <div key={Math.random()}>
         <NavLink to={path}>{path}</NavLink>
       </div>
     );
