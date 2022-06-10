@@ -40,22 +40,22 @@ const SalesTable = () => {
   };
 
   const onDeleteCLickHandler = (rowId) => {
-    console.log("deleteee", rowId)
     setSeletectedSale(rowId);
     setIsShowConfirmModal(true);
   };
 
   const onOkDeleteSalesHandler = async () => {
-    const response = fetch(`http://localhost:3000/api/leads/${seletectedSale}`, {
+    fetch(`http://localhost:3000/api/leads/${seletectedSale}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       },
     }).then(async (value) => {
-      console.log("enteredd")
-      console.log(value)
       const data = await value.json()
       setTableData([...data])
+    })
+    .catch((err)=>{
+      console.log(err)
     })
 
     setIsShowConfirmModal(false);
@@ -93,13 +93,13 @@ const SalesTable = () => {
           {tableData.length !== 0 && tableData.map((salesData) => {
             return (
               <tr key={salesData.id}>
-                <td colSpan="1">{salesData.name}</td>
+                <td>{salesData.name}</td>
                 <td>{salesData.value}</td>
                 <td>{salesData.date}</td>
                 <td>{salesData.ownerName}</td>
                 <td>{salesData.clientName}</td>
                 <td>
-                  <div onClick={() => onDeleteCLickHandler(salesData.id)}>
+                  <div onClick={() => onDeleteCLickHandler(salesData.id)} className="delet-button">
                     X
                   </div>
                 </td>

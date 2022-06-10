@@ -41,17 +41,17 @@ const ConfirmModal = ({
               <div className="delete-sales-modal-btnwrapper">
                 <button
                   type="button"
-                  class="btn btn-primary delete-sales-nobtn"
-                  onClick={onCancelClickhandler}
-                >
-                  No
-                </button>
-                <button
-                  type="button"
                   class="btn btn-primary delete-sales-okbtn"
                   onClick={onOkClickHandler}
                 >
                   Yes
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onClick={onCancelClickhandler}
+                >
+                  No
                 </button>
               </div>
             ) : (

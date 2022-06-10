@@ -5,6 +5,7 @@ import "./style.scss";
 function SideMenu() {
   const sideMenuOptions = [
     {
+      id:1,
       title: "Sales leads",
       description: "Review and create new leads",
       linkTo: "/",
@@ -12,9 +13,9 @@ function SideMenu() {
   ];
   return (
     <div className="sidemenu-wrap">
-      {sideMenuOptions.map(({ title, linkTo,description }) => {
+      {sideMenuOptions.map(({ id,title, linkTo,description }) => {
         return (
-          <NavLink to={linkTo} key={Math.random()}>
+          <NavLink to={linkTo} key={id}>
             <h5>{title}</h5>
             <p className="sidemenuitem-description">{description}</p>
           </NavLink>

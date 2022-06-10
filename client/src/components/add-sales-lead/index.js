@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ConfirmModal from "../form-elements/ConfirmModal";
 import Datepicker from "../form-elements/Datepicker";
 import Input from "../form-elements/Input";
@@ -9,8 +10,10 @@ const inputFieldKeys = ["name", "ownerName", "clientName", "value"];
 
 
 const AddSales = (props) => {
+  const navigate = useNavigate(); 
   const [payload, setPayload] = useState();
   const [isShowModal, setIsShowModal] = useState(false);
+  const [isShowErrorModal, setIsShowErrorModal] = useState(false);
 
   const onAddSalesHandler = (value, key) => {
     setPayload((prevState) => {
@@ -22,7 +25,7 @@ const AddSales = (props) => {
   };
 
   const onSaveSalesHandler = (event) => {
-    console.log("payload", payload);
+    event.preventDefault();
     fetch('http://localhost:3000/api/leads', {
       method: 'POST',
       headers: {
@@ -31,16 +34,20 @@ const AddSales = (props) => {
       body: JSON.stringify(payload)
     }).then(async (value)=>{
     let response = await value.json()
-    console.log("cominggg")
-    console.log(response)
-    })
     setIsShowModal(true);
-    event.preventDefault();
+   })
+   .catch((err)=>{
+    setIsShowErrorModal(true)
+   })
+   
+    
   };
 
   const onOkClickHandler = () =>{
     setIsShowModal(false);
-
+    setIsShowErrorModal(false)
+    navigate('/')
+    
   }
 
   return (
@@ -77,6 +84,9 @@ const AddSales = (props) => {
       </form>
       {isShowModal && (
         <ConfirmModal title="Sales added" content="Sales added successfully" onOkClickHandler={onOkClickHandler}/>
+      )}
+      {isShowErrorModal && (
+        <ConfirmModal title="Error Modal" content="Something Went Wrong" onOkClickHandler={onOkClickHandler}/>
       )}
     </div>
   );
