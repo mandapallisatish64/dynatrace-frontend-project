@@ -1,3 +1,32 @@
 .app-section {
   display: flex;
 }
+
+.side-nav {
+  background-color: lightgrey;
+  height: 100vh;
+  padding: 0
+}
+
+.sales-lead.container-fluid {
+  .top-nav {
+    background: rgb(20 168 245);
+
+    .dynatrace-logo {
+      width: 122px;
+      display: flex;
+      height: 49px;
+      padding-left: 13px;
+    }
+  }
+
+  .main-content-wrapper {
+    display: table-row;
+
+    .no-float {
+      display: table-cell;
+      float: none;
+
+    }
+  }
+}

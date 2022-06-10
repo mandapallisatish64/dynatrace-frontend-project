@@ -1,20 +1,14 @@
-import { BrowserRouter } from "react-router-dom";
-import Navigation from "./components/navigation";
-import SalesLeads from "./components/sales-leads";
-import SideMenu from "./components/sidemenu";
-import './App.scss'
-
+import { BrowserRouter as Router } from 'react-router-dom';
+import './App.scss';
+import { RouterFile } from './router';
 import "./style.scss";
+
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navigation />
-      <div className="app-section">
-        <SideMenu />
-        <SalesLeads />
-      </div>
-    </BrowserRouter>
+    <Router>
+    <RouterFile />
+  </Router>
   );
 }
 

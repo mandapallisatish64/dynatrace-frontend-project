@@ -7,15 +7,16 @@ function SideMenu() {
     {
       title: "Sales leads",
       description: "Review and create new leads",
-      linkTo: "/salesleads",
+      linkTo: "/",
     },
   ];
   return (
     <div className="sidemenu-wrap">
-      {sideMenuOptions.map(({ title, linkTo }) => {
+      {sideMenuOptions.map(({ title, linkTo,description }) => {
         return (
           <NavLink to={linkTo} key={Math.random()}>
             <h5>{title}</h5>
+            <p className="sidemenuitem-description">{description}</p>
           </NavLink>
         );
       })}

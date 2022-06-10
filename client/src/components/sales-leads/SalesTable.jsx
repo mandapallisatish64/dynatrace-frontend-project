@@ -10,54 +10,23 @@ const columns = [
   { title: "Client Name", type: "string", dataIndex: "clientName" },
   { title: "Delete" },
 ];
-const data = [
-  {
-    id: 1,
-    name: "leadname1",
-    ownerName: "Jack",
-    clientName: "Amazon",
-    value: "125678",
-    date: "10/20/2022",
-    delete: "X",
-  },
-  {
-    id: 2,
 
-    name: "leadname2",
-    ownerName: "Johnson",
-    clientName: "Pandora",
-    value: "5432",
-    date: "11/20/2022",
-    delete: "X",
-  },
-
-  {
-    id: 3,
-
-    name: "leadname3",
-    ownerName: "Rick",
-    clientName: "Shein",
-    value: "2345",
-    date: "15/20/2022",
-    delete: "X",
-  },
-];
 
 const SalesTable = () => {
   const [tableData, setTableData] = useState([]);
   const [isShowConfirmModal, setIsShowConfirmModal] = useState(false);
   const [seletectedSale, setSeletectedSale] = useState();
 
-  useEffect(()=>{
+  useEffect(() => {
     getSalesData()
-  
-  },[])
-const getSalesData = async ()=>{
-  const response = await fetch('http://localhost:3000/api/leads')
-  let data = await response.json()
-  console.log(data)
-  setTableData([...data])
-}
+
+  }, [])
+  const getSalesData = async () => {
+    const response = await fetch('http://localhost:3000/api/leads')
+    let data = await response.json()
+    console.log(data)
+    setTableData([...data])
+  }
   const handleSorting = (header) => {
     setTableData((prevState) => {
       const newState = [...prevState];
@@ -67,40 +36,28 @@ const getSalesData = async ()=>{
       console.log(newState);
       return newState;
     });
-    // if (header.type === "string") {
-    //   data.sort((a, b) => {
-    //     return a[header.dataIndex].localeCompare(b[header.dataIndex]);
-    //   });
-    // }
 
-    // console.log(data);
-
-    // setTableData(data);
   };
 
   const onDeleteCLickHandler = (rowId) => {
-    console.log("deleteee",rowId)
+    console.log("deleteee", rowId)
     setSeletectedSale(rowId);
     setIsShowConfirmModal(true);
   };
 
   const onOkDeleteSalesHandler = async () => {
-    // const filteredArr = tableData.filter(
-    //   (record) => record.id !== seletectedSale
-    // );
-    console.log("entered delete function")
     const response = fetch(`http://localhost:3000/api/leads/${seletectedSale}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       },
-       }).then(async (value)=>{
-         console.log("enteredd")
-         console.log(value)
-         const data = await value.json()
-        setTableData([...data])
-       })
-      
+    }).then(async (value) => {
+      console.log("enteredd")
+      console.log(value)
+      const data = await value.json()
+      setTableData([...data])
+    })
+
     setIsShowConfirmModal(false);
   };
   return (
@@ -133,7 +90,7 @@ const getSalesData = async ()=>{
           </tr>
         </thead>
         <tbody>
-          {tableData.length !==0 && tableData.map((salesData) => {
+          {tableData.length !== 0 && tableData.map((salesData) => {
             return (
               <tr key={salesData.id}>
                 <td colSpan="1">{salesData.name}</td>

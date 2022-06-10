@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import dynatrace from './assets/dynatrace.png';
+import logo from "./assets/dynatrace.png";
 import AddSales from './components/add-sales-lead';
 import SalesLeads from "./components/sales-leads";
 import SideMenu from './components/sidemenu';
@@ -10,17 +10,16 @@ export const RouterFile = () => {
     return (
 
 
-        <div class="container">
+        <div class="sales-lead container-fluid">
             <div class="row top-nav">
+                <img className='dynatrace-logo' src={logo} />
 
-            <img className="image" src={dynatrace} alt="BigCo Inc. logo"/>
-                <p>this is top navigation</p>
             </div>
-            <div class="row">
-                <div class="col-2 first-ele">
+            <div class="row main-content-wrapper">
+                <div class="col-2 no-float side-nav">
                     <SideMenu />
                 </div>
-                <div class="col-10">
+                <div class="col-10 no-float actual-content">
                     <Routes>
                         <Route exact path="/" element={<SalesLeads />}></Route>
                         <Route exact path="/add" element={<AddSales />}></Route>
@@ -34,19 +33,3 @@ export const RouterFile = () => {
 
 
 
-{/* <div className="app-section">
-          <div className='top-nav'>
-              <p>this is top navigation</p>
-          </div>
-          <div className='side-bar'>
-        <SideMenu />
-        </div>
-        <div className='real-content'>
-        <Routes>
-        <Route exact path="/" element={<SalesLeads />}></Route>
-        <Route exact path="/add" element={<AddSales />}></Route>
-        </Routes>
-        </div>
-       
-      </div>
-       */}
