@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import logo from "./assets/dynatrace.png";
-import AddSales from './components/add-sales-lead';
-import SalesLeads from "./components/sales-leads";
-import SideMenu from './components/sidemenu';
+import Header from './components/Header';
+import SideMenu from './components/SideMenu';
+import AddUser from './pages/AddUser';
+import Home from "./pages/Home";
 import "./style.scss";
 
 export const RouterFile = () => {
@@ -12,7 +12,7 @@ export const RouterFile = () => {
 
         <div class="sales-lead container-fluid">
             <div class="row top-nav">
-                <img className='dynatrace-logo' src={logo} />
+                <Header />
 
             </div>
             <div class="row main-content-wrapper">
@@ -21,8 +21,8 @@ export const RouterFile = () => {
                 </div>
                 <div class="col-10 no-float actual-content">
                     <Routes>
-                        <Route exact path="/" element={<SalesLeads />}></Route>
-                        <Route exact path="/add" element={<AddSales />}></Route>
+                        <Route exact path="/" element={<Home />}></Route>
+                        <Route exact path="/add" element={<AddUser />}></Route>
                     </Routes>
                 </div>
             </div>

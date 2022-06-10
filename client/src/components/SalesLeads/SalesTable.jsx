@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import React, { useEffect, useState } from "react";
-import ConfirmModal from "../form-elements/ConfirmModal";
+import ConfirmModal from "../FormElements/ConfirmModal";
 
 const columns = [
   { title: "Name", type: "string", dataIndex: "name" },

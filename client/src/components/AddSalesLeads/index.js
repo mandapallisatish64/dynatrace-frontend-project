@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ConfirmModal from "../form-elements/ConfirmModal";
-import Datepicker from "../form-elements/Datepicker";
-import Input from "../form-elements/Input";
+import ConfirmModal from "../FormElements/ConfirmModal";
+import Datepicker from "../FormElements/Datepicker";
+import Input from "../FormElements/Input";
 import "./style.scss";
 
 const inputFields = ["Name", "Owner Name", "Client Name", "Value"];
 const inputFieldKeys = ["name", "ownerName", "clientName", "value"];
 
 
-const AddSales = (props) => {
+const AddSales = () => {
   const navigate = useNavigate(); 
   const [payload, setPayload] = useState();
   const [isShowModal, setIsShowModal] = useState(false);
@@ -66,7 +66,7 @@ const AddSales = (props) => {
           <div className="cancel-sales col">
             <button
               className="cancel-sales-btn"
-              onClick={props.onCancelClickHandler}
+              onClick={()=> navigate('/')}
             >
               Cancel
             </button>
