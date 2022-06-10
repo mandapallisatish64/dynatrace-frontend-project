@@ -4,7 +4,7 @@ import logo from "../../assets/dynatrace.png";
 const Header = ()=>{
     const navigate = useNavigate(); 
     return (
-        <img className='dynatrace-logo' src={logo} onClick={()=>navigate('/')}/>
+        <img className='dynatrace-logo' alt="logo icon" src={logo} onClick={()=>navigate('/')}/>
     )
 }
 

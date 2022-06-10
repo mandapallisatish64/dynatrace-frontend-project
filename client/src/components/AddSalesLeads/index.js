@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Values } from "../../constants/index";
 import ConfirmModal from "../FormElements/ConfirmModal";
 import Datepicker from "../FormElements/Datepicker";
 import Input from "../FormElements/Input";
@@ -26,7 +27,7 @@ const AddSales = () => {
 
   const onSaveSalesHandler = (event) => {
     event.preventDefault();
-    fetch('http://localhost:3000/api/leads', {
+    fetch(`${Values.Service_Url}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

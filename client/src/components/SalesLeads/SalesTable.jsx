@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import React, { useEffect, useState } from "react";
+import arrow from "../../assets/arrow.svg";
+import { Values } from "../../constants/index";
 import ConfirmModal from "../FormElements/ConfirmModal";
 
 const columns = [
@@ -16,26 +18,36 @@ const SalesTable = () => {
   const [tableData, setTableData] = useState([]);
   const [isShowConfirmModal, setIsShowConfirmModal] = useState(false);
   const [seletectedSale, setSeletectedSale] = useState();
+  const [sortOrder, setSortOrder] = useState(false)
 
   useEffect(() => {
     getSalesData()
 
   }, [])
   const getSalesData = async () => {
-    const response = await fetch('http://localhost:3000/api/leads')
-    let data = await response.json()
+    console.log("entered sales data")
+    console.log(Values)
+    const response = await fetch(`${Values.Service_Url}`)
+    let data = await response.json();
+    data.map((item) => item.date = item.date.substring(0, 10))
     console.log(data)
     setTableData([...data])
   }
-  const handleSorting = (header) => {
-    setTableData((prevState) => {
-      const newState = [...prevState];
-      newState.sort((a, b) =>
-        a[header.dataIndex].localeCompare(b[header.dataIndex])
-      );
-      console.log(newState);
-      return newState;
-    });
+  const handleSorting = () => {
+
+    if (sortOrder) {
+
+      let sortedValues = tableData.sort((a, b) => a.value - b.value)
+
+      setTableData(sortedValues)
+    }
+    else {
+
+      let sortedValues = tableData.sort((a, b) => b.value - a.value);
+
+      setTableData(sortedValues)
+    }
+    setSortOrder(!sortOrder)
 
   };
 
@@ -45,7 +57,7 @@ const SalesTable = () => {
   };
 
   const onOkDeleteSalesHandler = async () => {
-    fetch(`http://localhost:3000/api/leads/${seletectedSale}`, {
+    fetch(`${Values.Service_Url}/${seletectedSale}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -54,9 +66,9 @@ const SalesTable = () => {
       const data = await value.json()
       setTableData([...data])
     })
-    .catch((err)=>{
-      console.log(err)
-    })
+      .catch((err) => {
+        console.log(err)
+      })
 
     setIsShowConfirmModal(false);
   };
@@ -70,19 +82,10 @@ const SalesTable = () => {
                 {
                   <div onClick={() => handleSorting(header)}>
                     <span>{header.title}</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-arrow-down"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
-                      />
-                    </svg>
+                    {header.title === "Value" &&
+                      <img src={arrow} alt="Arrow" className={sortOrder ? "up-arrow" : ''} />
+                    }
+
                   </div>
                 }
               </th>
